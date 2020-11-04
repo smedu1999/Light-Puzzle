@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Line : MonoBehaviour
 {
-    private LineRenderer lr;    
+    private LineRenderer lr;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +19,11 @@ public class Line : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
             if (hit.collider)
-                lr.SetPosition(1, hit.point);
+            {
+                lr.SetPosition(1, new Vector3(0, 0, hit.distance));
+            }
         }
-        else
-            lr.SetPosition(1, transform.forward*2000);
+        else lr.SetPosition(1, new Vector3(0, 0, 5000));
     }
 }
+
