@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Line : MonoBehaviour
 {
-    private LineRenderer lr;
+    private LineRenderer lr;    
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,6 @@ public class Line : MonoBehaviour
                 lr.SetPosition(1, hit.point);
         }
         else
-            lr.SetPosition(1, transform.forward*20);
+            lr.SetPosition(1, transform.forward*2000);
     }
 }

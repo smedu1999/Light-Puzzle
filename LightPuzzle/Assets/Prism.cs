@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets
 {
-    class Light
+    class Prism
     {
-        public List<Line> Lines { get; set; }        
-        public Light()
-        {
-            Lines = new List<Line>();
-        }
     }
 }

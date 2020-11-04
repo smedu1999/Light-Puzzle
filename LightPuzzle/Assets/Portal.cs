@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets
 {
@@ -13,23 +14,33 @@ namespace Assets
         public PortalElement Gate2 { get; set; }
         public Portal()
         {
-            Gate1 = new PortalElement(Gate2);
+            Gate1 = new PortalElement();
+            Gate2 = new PortalElement();
+
+            Gate1.MyPair = Gate2;
+            Gate2.MyPair = Gate1;
         }
 
     }
 
     class PortalElement : GameElement
     {
-        List<Light> Light;
-        PortalElement MyPair;
-        public PortalElement(PortalElement pair)
+        public List<Light> Lights { get; set; }
+        public PortalElement MyPair { get; set; }
+        public PortalElement()
         {
-            MyPair = pair;
-            Light = new List<Light>();
+            Lights = new List<Light>();
         }
         public void OnLightCollided(Light light)
         {
-            MyPair.Light.Add(light);
+            light.Lines.Add(new Line());
+            MyPair.Lights.Add(light);
+        }
+
+        public void OnMove(Vector3 pos)
+        {
+            Lights.Clear();
+            Position = pos;
         }
     }
 
