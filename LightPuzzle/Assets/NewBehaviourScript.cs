@@ -11,9 +11,8 @@ namespace lightPuzzleGame
         public Rigidbody rb;
         void Start()
         {
-            var n = new GameElement();
-            if (n.t)
-                rb.AddForce(n.vec);
+            var n = new GameElement();            
+            rb.AddForce(n.Position);
 
         }
 

@@ -4,12 +4,10 @@ namespace lightPuzzleGame
 {
     internal class GameElement
     {
-        public bool t { get; set; }
-        public Vector3 vec { get; set; }
+        public Vector3 Position { get; set; }
         public GameElement()
         {
-            t = true;
-            vec = new Vector3(200, 200, 200);
-        }
+            Position = new Vector3(100, 200, 300);
+        }       
     }
 }
