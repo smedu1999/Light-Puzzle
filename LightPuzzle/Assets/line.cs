@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class line : MonoBehaviour
+public class Line : MonoBehaviour
 {
     private LineRenderer lr;
 
