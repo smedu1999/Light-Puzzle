@@ -12,17 +12,24 @@ namespace Assets
         public PortalElement Gate1 { get; set; }
         public PortalElement Gate2 { get; set; }
         public Portal()
-        { 
+        {
+            Gate1 = new PortalElement(Gate2);
         }
 
     }
 
     class PortalElement : GameElement
     {
-
-            public void OnLightCollided(object sender, PortalElement otherGate)
-        { 
-
+        List<Light> Light;
+        PortalElement MyPair;
+        public PortalElement(PortalElement pair)
+        {
+            MyPair = pair;
+            Light = new List<Light>();
+        }
+        public void OnLightCollided(Light light)
+        {
+            MyPair.Light.Add(light);
         }
     }
 
