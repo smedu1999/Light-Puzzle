@@ -44,11 +44,14 @@ public class Line : MonoBehaviour
                     remainstep -= Vector3.Distance(ray.origin, hit.point);
                     ray = new Ray(hit.point, Vector3.Reflect(ray.direction, hit.normal));
                 }
-                if (hit.collider.gameObject.layer == 9)
+                if(hit.collider.gameObject.layer == 9)
                 {
-                    Vector3 distance = GameObject.Find("Pout").gameObject.transform.position - GameObject.Find("Pin").gameObject.transform.position; ;
+                    Eltolo e = hit.collider.gameObject.GetComponent<Eltolo>();
+                    lr.positionCount += 1;
+                    lr.SetPosition(lr.positionCount - 1, hit.point + (e.other.position - e.transform.position));
                     remainstep -= Vector3.Distance(ray.origin, hit.point);
-                    ray = new Ray(hit.point + distance, ray.direction);
+                    remainstep -= Vector3.Distance(hit.point, e.other.position - e.transform.position);
+                    ray = new Ray(hit.point + e.other.position - e.transform.position, ray.direction);
                 }
                     if (hit.collider.gameObject.layer == 0)
                 {
