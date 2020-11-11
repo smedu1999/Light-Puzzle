@@ -10,6 +10,7 @@ TagManager:
   - Kesz1
   - Kesz2
   - Kesz3
+  - emptyPlace
   layers:
   - Default
   - TransparentFX

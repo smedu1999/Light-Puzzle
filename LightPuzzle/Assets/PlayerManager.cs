@@ -12,24 +12,37 @@ namespace Assets
     {
         [SerializeField]
         private object emptyPlace;
-        private Vector3 initPos;
-        float deltaX, deltaY, deltaZ;
+        private Vector3 initPos;           
+        bool moveObject;
+        public float speed = 10f;
+        private Vector3 delta;
 
 
         void Start()
         {
             initPos = transform.position;
+            delta = new Vector3(0.5f, 0.5f, 0.5f);
         }
         
 
         private void Update()
         {
+            Vector3 mousePos = Input.mousePosition;
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 mousePos = Input.mousePosition;
-
-                if(GetComponent<BoxCollider>()==Physics.OverlapBox(mousePos,new Vector3(deltaX,deltaY,deltaZ))
+                //if((transform.position.x-500f>mousePos.x&& transform.position.z - 500f > mousePos.z)||( transform.position.x + 500f < mousePos.x && transform.position.z + 500f < mousePos.z))
+                {
+                    moveObject = true;
+                }
+                
             }
+
+            if (moveObject)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, mousePos, speed * Time.deltaTime);
+            }
+            if (transform.position == mousePos)
+                moveObject = false;
         }
     }
 }
