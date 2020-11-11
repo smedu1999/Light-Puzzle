@@ -41,7 +41,7 @@ public class Line : MonoBehaviour
         Vector3 oldpos = pos;
         Ray ray = new Ray(pos, dir);
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
             dir = Vector3.Reflect(dir, hit.normal);
             pos = hit.point;
