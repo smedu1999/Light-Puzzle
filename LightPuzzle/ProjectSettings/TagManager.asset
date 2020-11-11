@@ -7,6 +7,9 @@ TagManager:
   - ShowOnPause
   - Bemenet1
   - Bemenet2
+  - Kesz1
+  - Kesz2
+  - Kesz3
   layers:
   - Default
   - TransparentFX

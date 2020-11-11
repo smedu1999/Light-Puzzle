@@ -37,6 +37,9 @@ public class Line : MonoBehaviour
                 Kimenet k = hit.collider.gameObject.GetComponent<Kimenet>();
                 if (k != null)
                     k.Kiment();
+                Kesz kesz = hit.collider.gameObject.GetComponent<Kesz>();
+                if (kesz != null)
+                    kesz.Bement();
                 lr.positionCount += 1;
                 lr.SetPosition(lr.positionCount - 1, hit.point);
                 if (hit.collider.gameObject.layer == 8)
