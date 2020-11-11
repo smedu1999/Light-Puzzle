@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - ShowOnPause
+  - Bemenet1
+  - Bemenet2
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - 
   - 
   - Reflector
-  - Teleportin
-  - 
+  - Prism
+  - Collider
   - 
   - 
   - 

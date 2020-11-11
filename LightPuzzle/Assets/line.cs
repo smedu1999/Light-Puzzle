@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Line : MonoBehaviour
 {
+    public Transform collider;
     public int maxstep = 200;
     private int maxref = 20;
 
@@ -26,17 +27,37 @@ public class Line : MonoBehaviour
         lr.positionCount = 1;
         lr.SetPosition(0, transform.position);
         float remainstep = maxstep;
+        Bemenet b1 = null;
 
         for(int i = 0; i < maxref; i++)
         {
             if (Physics.Raycast(ray.origin, ray.direction, out hit, remainstep))
             {
-
+                Bemenet b = hit.collider.gameObject.GetComponent<Bemenet>();
+                if (b != null)
+                {
+                    b1 = b;
+                    b1.Bement();
+                }
+                else
+                {
+                    if(b1 != null) b1.Kiment();
+                }
                 lr.positionCount += 1;
                 lr.SetPosition(lr.positionCount - 1, hit.point);
-                remainstep -= Vector3.Distance(ray.origin, hit.point);
-                ray = new Ray(hit.point, Vector3.Reflect(ray.direction, hit.normal));
-                if (hit.collider.gameObject.layer != 8)
+                collider.transform.position = hit.point;
+                if (hit.collider.gameObject.layer == 8)
+                {
+                    remainstep -= Vector3.Distance(ray.origin, hit.point);
+                    ray = new Ray(hit.point, Vector3.Reflect(ray.direction, hit.normal));
+                }
+                if (hit.collider.gameObject.layer == 9)
+                {
+                    Vector3 distance = GameObject.Find("Pout").gameObject.transform.position - GameObject.Find("Pin").gameObject.transform.position; ;
+                    remainstep -= Vector3.Distance(ray.origin, hit.point);
+                    ray = new Ray(hit.point + distance, ray.direction);
+                }
+                    if (hit.collider.gameObject.layer == 0)
                 {
                     break;
                 }
@@ -44,6 +65,7 @@ public class Line : MonoBehaviour
             else
             {
                 lr.positionCount += 1;
+                collider.transform.position = hit.point;
                 lr.SetPosition(lr.positionCount - 1, ray.origin + ray.direction * remainstep);
             }
         }
