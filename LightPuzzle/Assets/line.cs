@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Line : MonoBehaviour
 {
-    public Transform collider;
     public int maxstep = 200;
     private int maxref = 20;
 
@@ -27,7 +26,6 @@ public class Line : MonoBehaviour
         lr.positionCount = 1;
         lr.SetPosition(0, transform.position);
         float remainstep = maxstep;
-        Bemenet b1 = null;
 
         for(int i = 0; i < maxref; i++)
         {
@@ -35,17 +33,12 @@ public class Line : MonoBehaviour
             {
                 Bemenet b = hit.collider.gameObject.GetComponent<Bemenet>();
                 if (b != null)
-                {
-                    b1 = b;
-                    b1.Bement();
-                }
-                else
-                {
-                    if(b1 != null) b1.Kiment();
-                }
+                    b.Bement();
+                Kimenet k = hit.collider.gameObject.GetComponent<Kimenet>();
+                if (k != null)
+                    k.Kiment();
                 lr.positionCount += 1;
                 lr.SetPosition(lr.positionCount - 1, hit.point);
-                collider.transform.position = hit.point;
                 if (hit.collider.gameObject.layer == 8)
                 {
                     remainstep -= Vector3.Distance(ray.origin, hit.point);
@@ -65,7 +58,6 @@ public class Line : MonoBehaviour
             else
             {
                 lr.positionCount += 1;
-                collider.transform.position = hit.point;
                 lr.SetPosition(lr.positionCount - 1, ray.origin + ray.direction * remainstep);
             }
         }

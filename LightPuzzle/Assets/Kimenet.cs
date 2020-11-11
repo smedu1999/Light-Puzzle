@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bemenet : MonoBehaviour
+public class Kimenet : MonoBehaviour
 {
     public Prizma prism;
     // Start is called before the first frame update
@@ -16,11 +16,12 @@ public class Bemenet : MonoBehaviour
     {
 
     }
-    public void Bement()
+
+    public void Kiment()
     {
         if (this.tag == "Bemenet1")
-            prism.bemenet1 = true;
+            prism.bemenet1 = false;
         if (this.tag == "Bemenet2")
-            prism.bemenet2 = true;
+            prism.bemenet2 = false;
     }
 }
