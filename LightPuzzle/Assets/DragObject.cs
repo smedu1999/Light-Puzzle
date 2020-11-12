@@ -6,13 +6,6 @@ public class DragObject : MonoBehaviour
 {
     private Vector3 mOffset;
     private float mZCoord;
-    private Vector3 initPos; 
-
-
-    void Start()
-    {
-        initPos = transform.position;      
-    }
 
     void OnMouseDown()
     {

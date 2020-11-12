@@ -21,10 +21,10 @@ public class Kesz : MonoBehaviour
     public void Bement()
     {
         if (this.tag == "Kesz1")
-            f.kesz1 = true;
+            f.done1 = true;
         if (this.tag == "Kesz2")
-            f.kesz2 = true;
+            f.done2 = true;
         if (this.tag == "Kesz3")
-            f.kesz3 = true;
+            f.done3 = true;
     }
 }
