@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 9838f15091e68ef4ab4515a93a60db69
   - enabled: 1
+    path: Assets/Scenes/howtoplay.unity
+    guid: 1a196c28afb4c374bae7bdce5f74f2a5
+  - enabled: 1
     path: "Assets/Scenes/P\xE1ly\xE1k by Kriszti.unity"
     guid: bdce13478cea3124fa7d48174491ac7b
   - enabled: 0
