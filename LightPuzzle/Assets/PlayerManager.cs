@@ -28,7 +28,7 @@ namespace Assets
             {
                 Vector3 mousePos = Input.mousePosition;
 
-                if(GetComponent<BoxCollider>()==Physics.OverlapBox(mousePos,new Vector3(deltaX,deltaY,deltaZ))
+                //if(GetComponent<BoxCollider>()==Physics.OverlapBox(mousePos,new Vector3(deltaX,deltaY,deltaZ))
             }
         }
     }
